@@ -102,9 +102,9 @@ o: other end,将光标至于被选文本的另一端
 O: 当使用虚拟块模式时，`o`命令会将光标至于对角线的另一端，`O`可以在同行的两个角上移动  
 
 ##### 文本对象
-不管当前光标所在的位置而把整个文本对象作为操作对象
-daw: delete a word
-cis: inner sentence, `as` a sentence  
+不管当前光标所在的位置而把整个文本对象作为操作对象  
+daw: delete a word  
+cis: inner sentence, `as` a sentence    
 
 ##### 命令行模式
 :set ignorecase :忽略大小写  
