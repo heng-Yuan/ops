@@ -90,9 +90,9 @@ xp: 交换两个字符，x删除一个字符，并放在寄存器中，p将字�
 y: 复制  
 
 ###### 正则匹配
-^: 行首
-$: 行尾
-.: 匹配单个任意字符  
+^: 行首  
+$: 行尾  
+.: 匹配单个任意字符    
 
 ##### 虚拟模式
 v：虚拟字符模式  
@@ -116,6 +116,29 @@ cis: inner sentence, `as` a sentence
 
 :set incsearch: 增量搜索  
 :set nowrapscan: 搜索至文件开头或结尾停止，不循环搜索  
+
+:set showmode 
+:set showcmd
+:set ruler
++-------------------------------------------------+
+|text in the Vim window                           |
+|~                                                |
+|~                                                |
+|-- VISUAL --                         2f 43,8 17% |
++-------------------------------------------------+
+^^^^^^^^^^^                     ^^^^^^^^ ^^^^^^^^^^
+'showmode'                      'showcmd' 'ruler'
+
+###### 命令映射
+:map :设置映射，`:map <F5> i{<Esc>ea}<Esc>`
+:autocmd: 设置自动执行的命令，`autocmd FileType text setlocal textwidth=78`, "autocmd FileType text"是一个自动命令。它所定义的是每当文件类型被设置为"text"时就自动执行它后面的命令。"setlocal textwidth=78"把"textwidth"选项的值设置为78，但这种设置只对当前的一个文件有效。  
+
+#### Plugin
+###### 全局plugin
+- $VIMRUNTIME/macros  /usr/share/vim/vim74/macros
+- http://www.vim.org
+
+
 
 
 
