@@ -120,23 +120,23 @@ cis: inner sentence, `as` a sentence
 :set showmode 
 :set showcmd
 :set ruler
-+-------------------------------------------------+
-|text in the Vim window                           |
-|~                                                |
-|~                                                |
-|-- VISUAL --                         2f 43,8 17% |
-+-------------------------------------------------+
-^^^^^^^^^^^                     ^^^^^^^^ ^^^^^^^^^^
-'showmode'                      'showcmd' 'ruler'
++-------------------------------------------------+  
+|text in the Vim window                           |  
+|~                                                |  
+|~                                                |  
+|-- VISUAL --                         2f 43,8 17% |  
++-------------------------------------------------+  
+^^^^^^^^^^^                     ^^^^^^^^ ^^^^^^^^^^  
+'showmode'                      'showcmd' 'ruler'  
 
-###### 命令映射
-:map :设置映射，`:map <F5> i{<Esc>ea}<Esc>`
+###### 命令映射  
+:map :设置映射，`:map <F5> i{<Esc>ea}<Esc>`  
 :autocmd: 设置自动执行的命令，`autocmd FileType text setlocal textwidth=78`, "autocmd FileType text"是一个自动命令。它所定义的是每当文件类型被设置为"text"时就自动执行它后面的命令。"setlocal textwidth=78"把"textwidth"选项的值设置为78，但这种设置只对当前的一个文件有效。  
 
 #### Plugin
 ###### 全局plugin
-- $VIMRUNTIME/macros  /usr/share/vim/vim74/macros
-- http://www.vim.org
+- $VIMRUNTIME/macros  /usr/share/vim/vim74/macros  
+- http://www.vim.org  
 
 
 
