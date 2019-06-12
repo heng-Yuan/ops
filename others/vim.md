@@ -117,16 +117,16 @@ cis: inner sentence, `as` a sentence
 :set incsearch: 增量搜索  
 :set nowrapscan: 搜索至文件开头或结尾停止，不循环搜索  
 
-:set showmode 
-:set showcmd
-:set ruler
+:set showmode   
+:set showcmd  
+:set ruler  
 +-------------------------------------------------+  
 |text in the Vim window                           |  
 |~                                                |  
 |~                                                |  
 |-- VISUAL --                         2f 43,8 17% |  
 +-------------------------------------------------+  
-^^^^^^^^^^^                     ^^^^^^^^ ^^^^^^^^^^  
+^^^^^^^^^^^\n\n\n\n\n\n\n^^^^^^^^ ^^^^^^^^^^  
 'showmode'                      'showcmd' 'ruler'  
 
 ###### 命令映射  
