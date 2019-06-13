@@ -129,6 +129,11 @@ cis: inner sentence, `as` a sentence
 ^^^^^^^^^^^\n\n\n\n\n\n\n^^^^^^^^ ^^^^^^^^^^  
 'showmode'                      'showcmd' 'ruler'  
 
+:set nowrap: 设置不折行  
+:set list: 查看制表符 
+:set cmdheight=3: Vim启动时会在窗口最底部留下一行用于显示信息。要显示的信息太长时，Vim或者把它截短让你只能看到部分内容，或者多出来的信息需要
+你按下回车键以滚动显示。你可以设置'cmdheight'选项来控制拿出几行来显示这些信息  
+
 ###### 命令映射  
 :map :设置映射，`:map <F5> i{<Esc>ea}<Esc>`  
 :autocmd: 设置自动执行的命令，`autocmd FileType text setlocal textwidth=78`, "autocmd FileType text"是一个自动命令。它所定义的是每当文件类型被设置为"text"时就自动执行它后面的命令。"setlocal textwidth=78"把"textwidth"选项的值设置为78，但这种设置只对当前的一个文件有效。  
@@ -137,6 +142,46 @@ cis: inner sentence, `as` a sentence
 ###### 全局plugin
 - $VIMRUNTIME/macros  /usr/share/vim/vim74/macros  
 - http://www.vim.org  
+将plugin放在~/.vim/plugin/目录下即可
+:!mkdir ~/.vim
+:!mkdir ~/.vim/plugin
+:!cp $VIMRUNTIME/macros/matchit.vim ~/.vim/plugin
+
+##### 语法高亮
+:syntax enable : 打开语法高亮
+在vimrc中打开，在终端支持彩色显示时才启用语法高亮
+if &t_Co > 1  
+    syntax enable  
+endif  
+
+查看支持语法高亮的文本: /usr/share/vim/vim74/syntax/  
+
+:syntax clear : 临时关闭语法高亮  
+:syntax off : 停止语法高亮  
+
+##### 编辑多个文件
+:edit foo.txt : 可以在当前Vim中开始编辑另一个文件。Vim会关闭当前正在编辑的文件打开指定的新文件进行编辑。如果当前文件还有未存盘的内容，Vim会显示错误消息同时也不会打开另一个文件,此时，你可以有几种选择。`:write`保存该文件,`:edit! foo.txt`强制Vim丢弃当前未保存的修改并开始编辑新的文件,`:hide edit foo.txt`如果你想编辑另一个文件，但又不想保存当前文件中的改动，你可以使它变为一个隐藏的缓冲区  
+
+可以在启动Vim时就指定要编辑多个文件: `vim one.c two.c three.c`,Vim将在启动后只显示第一个文件。完成该文件的编辑后，可以以命令`:next`开始下一个文件的编辑。`:wnext`保存当前工作成果并继续下一个文件的编辑；`:args`可以查看整个列表中就有哪些文件，正在编辑的那一个文件将会以方括号括起来；`:previous`回到前一个文件，`:wprevious`保存当前工作成果并回到前一个文件;`:last`移到最后一个文件;`:first`移到第一个文件；不过没有":wlast"或者":wfirst"这样的命令；也可以在":next"和":previous"命令前面使用一个命令计数`2next`
+
+:set autowrite : 当你在不同文件之间转移时，你必需记住用":write"命令来存盘。否则就会得到一个错误消息。如果你确定自己每次都是要保存文件，就可以告诉Vim每当需要时就自动保存文件  
+:set noautowrite  
+
+当你有一个列表的文件要编辑时，Vim假设你要全部编辑它们。为防止你漏掉某些文件过早地退出，Vim会在你没有编辑过最后一个文件就想退出时给出一个错误信息，如果你确定要退出，只要再执行一次退出命令
+
+CTRL+^: 在两个文件间快速切换,注意`CTRL+^`命令并不改变当前你在文件列表中的位置，只有命令":next"和":previous"才会引起此位置的变化
+
+\`"：这个标记会带你到上次你离开该文件时光标所在的位置
+\`.： 光标移至最后一次对文件做出改动处
+
+小写字母命名的是全局标记，大写字母命名的是全局标记
+假设我们正编辑"foo.txt"。到文件的半中间("50%")处设置一个名为F的标记(F意为foo): 50%mF
+现在转而编辑"bar.txt"并在其最后一行设置一个名为B(B意为bar)的标记: GmB
+现在你可以用"\`F"命令跳转到文件foo.txt的半中间。或者编辑另一个文件，"\`B"命令会再把你带回文件bar.txt的最后一行
+要知道某个标记所代表的位置是什么，可以将该标记的名字作为"marks"命令的参数：` :marks F`
+如果你删除了标记所在的行，同时也就等于删除了该标记
+
+
 
 
 
