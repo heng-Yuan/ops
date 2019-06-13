@@ -120,6 +120,7 @@ cis: inner sentence, `as` a sentence
 :set showmode   
 :set showcmd  
 :set ruler  
+```
 +-------------------------------------------------+  
 |text in the Vim window                           |  
 |~                                                |  
@@ -128,6 +129,7 @@ cis: inner sentence, `as` a sentence
 +-------------------------------------------------+  
 ^^^^^^^^^^^\n\n\n\n\n\n\n^^^^^^^^ ^^^^^^^^^^  
 'showmode'                      'showcmd' 'ruler'  
+```
 
 :set nowrap: 设置不折行  
 :set list: 查看制表符 
@@ -149,10 +151,12 @@ cis: inner sentence, `as` a sentence
 
 ##### 语法高亮
 :syntax enable : 打开语法高亮
-在vimrc中打开，在终端支持彩色显示时才启用语法高亮
+在vimrc中打开，在终端支持彩色显示时才启用语法高亮  
+```
 if &t_Co > 1  
     syntax enable  
-endif  
+endif 
+```
 
 查看支持语法高亮的文本: /usr/share/vim/vim74/syntax/  
 
