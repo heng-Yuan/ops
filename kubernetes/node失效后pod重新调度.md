@@ -32,9 +32,12 @@ kubernetes节点失效后pod的调度过程：
  
 --node-monitor-grace-period duration     Default: 40s
  	Amount of time which we allow running Node to be unresponsive before marking it unhealthy. Must be N times more than kubelet's nodeStatusUpdateFrequency, where N means number of retries allowed for kubelet to post node status.
+
 --node-monitor-period duration     Default: 5s
  	The period for syncing NodeStatus in NodeController.
+
 --node-startup-grace-period duration     Default: 1m0s
  	Amount of time which we allow starting Node to be unresponsive before marking it unhealthy.
+
 --pod-eviction-timeout duration     Default: 5m0s
  	The grace period for deleting pods on failed nodes.
